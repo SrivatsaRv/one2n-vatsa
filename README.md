@@ -1,8 +1,12 @@
 # Assignment Submission - One2N x Srivatsa
 
 ### How to get this running?
-- We have 2 files , `python-aws-http.py` and `aws-s3-infra.tf` in the repository, 
+- We have 2 files , `python-http-s3.py` and `aws-s3-infra.tf` in the repository, 
 - Clone the repo with - `https://github.com/<your-username>/one2n-vatsa.git`
+
+- Initialise terraform `.tf` with terraform init -> terraform plan -> terraform apply 
+- Run the `.py` file , and this will start off the HTTP server running on localhost,
+
 
 ### Requirements
 - Ensure your system has Terraform Installed - [Click Here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
