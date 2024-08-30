@@ -14,3 +14,6 @@
 - Configure your AWS Account `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for Terraform on System- [Click Here](https://spacelift.io/blog/terraform-aws-provider)
 
 
+
+### Proposed Architecture for Assignment
+![Proposed Architecture](One2N_Assignment.drawio.png)
