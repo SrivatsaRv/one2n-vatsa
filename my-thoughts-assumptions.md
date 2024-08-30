@@ -18,11 +18,11 @@
 
 
 ### What am i assuming / setting up things - 
-VPC CIDR: 10.0.1.0/26
-Subnet CIDR: 10.0.1.1/26
-Availability Zone: No preference
-Route Table: Associated with subnet, route 0.0.0.0/0 to Internet Gateway
-EC2 Public IP: Enabled
-Security Group Source Type: Anywhere (0.0.0.0/0 for IPv4)
-Security Group Inbound Rules: Allow HTTP (port 80) and HTTPS (port 443)
-Python HTTP Server Listening Address: 0.0.0.0
+- VPC CIDR: 10.0.1.0/26
+- Subnet CIDR: 10.0.1.1/26
+- Availability Zone: No preference
+- Route Table: Associated with subnet, route 0.0.0.0/0 to Internet Gateway
+- EC2 Public IP: Enabled
+- Security Group Source Type: Anywhere (0.0.0.0/0 for IPv4)
+- Security Group Inbound Rules: Allow HTTP (port 80) and HTTPS (port 443)
+- Python HTTP Server Listening Address: 0.0.0.0
