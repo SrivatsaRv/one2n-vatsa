@@ -2,7 +2,8 @@ from flask import Flask, jsonify
 import logging
 import boto3
 
-s3 = boto3.client()
+s3 = boto3.client('s3')
+
 
 logging.basicConfig(filename='flaskapp.log',level=logging.DEBUG)  ##utilizing logging module in python to capture DEBUG logs to file flaskapp.log
 
@@ -16,7 +17,7 @@ def home():
 def hello_world():
     return 'Hello, World!'
 
-@app.errorhandler(404)   #Custom Error h
+@app.errorhandler(404)   #Custom Error handling
 def page_not_found(e):
     # Note '404' is the error code for "Page Not Found"
     return jsonify(error=404, text="This route is not supported."), 404
