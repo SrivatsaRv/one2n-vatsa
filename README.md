@@ -1,5 +1,15 @@
 # Assignment Submission - One2N x Srivatsa
 
+### Completed Items 
+- [✅] Part-1 - HTTP Service in Python Exposing a GET Endpoint to an S3 Bucket Path
+- [❌] Part-2 - Terraform Layout to Provision Infrastructure for Code Above
+
+### Bonus Points 
+- [✅] Bonus Point - Handle errors for non-existing paths
+- [❌] Bonus Point - Deploy Service on HTTPS
+- [✅] Bonus Point - Short Video Demo Recording / A Good Readme explaning design decisions, assumptions
+
+
 ## Requirements - 
 - Ensure you have Git installed on your machine - [Click Here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - Ensure your system has Terraform Installed - [Click Here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -10,6 +20,7 @@
 ## Action On - Local Machine (Laptop)
 - On your Linux Machine - go to `cd /home`
 - Clone Terraform Repository - `git clone https://github.com/SrivatsaRv/one2n-assignment-aws-terraform-infra.git`
+
 
 ### Step-1 - Provision the AWS infrastructure with Terraform
 - Confirm terraform installation on your machine with - `terraform --version`
@@ -36,7 +47,6 @@
 
 ## Notice 
 - Ensure you do not include `~/.aws` file in your Git repo , it should stay in your `/home` path
-- 
 
 
 
