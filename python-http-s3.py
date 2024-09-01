@@ -1,39 +1,38 @@
 from flask import Flask, jsonify
 import boto3
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Set up S3 client with default region
 s3 = boto3.client('s3', region_name='us-east-1')
 
-# Prepare the app rouets this GET call can expose
 @app.route('/list-bucket-contents/')
 @app.route('/list-bucket-contents/<path:subpath>')
-
-# Function that is tied to the decorator to communicate with S3 bucket and retrieve objects
 def list_bucket_content(subpath=''):
-    bucket_name = 'srivatsa-bucket'  # Name of the S3 bucket
+    bucket_name = 'srivatsa-bucket'
     
-    response = s3.list_objects_v2(Bucket=bucket_name, Prefix=subpath) # Get objects from S3 based on the subpath
+    if subpath and not subpath.endswith('/'):
+        subpath += '/'
 
-    # Checking 2 conditionals - if response does not have Content key, and Content Key itself is empty
-    if 'Contents' not in response or not response['Contents']:
-        return jsonify({'error': 'Path not found'}), 404
+    response = s3.list_objects_v2(Bucket=bucket_name, Prefix=subpath, Delimiter='/')
+    content = []
 
-    # Collect all the object keys (filenames)
-    filenames = []
-    for obj in response['Contents']:
-        filenames.append(obj['Key'])
+    # Handle directories (CommonPrefixes)
+    directories = response.get('CommonPrefixes')
+    if directories is not None:
+        for prefix in directories:
+            directory_name = prefix['Prefix'][len(subpath):].rstrip('/')
+            content.append(directory_name)
 
-    # Return the list of filenames as JSON
-    return jsonify({'content': filenames})
+    # Handle files (Contents)
+    files = response.get('Contents')
+    if files is not None:
+        for obj in files:
+            if obj['Key'].endswith('/'):
+                continue  # Skip directories
+            file_name = obj['Key'][len(subpath):]
+            content.append(file_name)
 
-# Custom 404 error handler to take care of paths that we don't provide for
-@app.errorhandler(404)
-def page_not_found(e):
-    return jsonify({'error': 'The requested URL was not found on the server'}), 404
+    return jsonify({'content': content})
 
-# Run the Flask app
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
