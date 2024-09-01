@@ -9,6 +9,8 @@
 - [❌] Bonus Point - Deploy Service on HTTPS
 - [✅] Bonus Point - Short Video Demo Recording / A Good Readme explaning design decisions, assumptions
 
+### NOTE - INFRASTRUCTURE IS HOSTED LIVE UNTIL 3rd SEPTEMBER 23:59 IST 
+
 
 ## Requirements - 
 - Ensure you have Git installed on your machine - [Click Here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
