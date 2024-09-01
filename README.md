@@ -29,7 +29,6 @@
 ### Terminate all resources 
 - Use `terraform destroy` to cleanup after you have tested to your satisfaction
 
-
 ## Assumptions -
 - You have configured your AWS Root Account -> Created an IAM Account (Administrators) , 
 - Our Terraform takes care from IAM (EC2 -> S3 Read access onwards)
