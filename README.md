@@ -12,6 +12,7 @@
 ### NOTE - INFRASTRUCTURE IS HOSTED LIVE UNTIL 3rd SEPTEMBER 23:59 IST 
 
 
+
 ## Requirements - 
 - Ensure you have Git installed on your machine - [Click Here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - Ensure your system has Terraform Installed - [Click Here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -54,3 +55,6 @@
 
 ### Proposed Architecture for Assignment
 ![Proposed Architecture](One2N_Assignment.drawio.png)
+
+### Proposed Directory Structure for Terraform Project
+![Terraform Configuration Directory](terraform-dir-structure.png)
