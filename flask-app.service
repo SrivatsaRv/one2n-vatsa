@@ -1,0 +1,13 @@
+[Unit]
+Description=Flask Application
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/one2n-vatsa
+Environment="PATH=/home/ec2-user/one2n-vatsa/venv/bin"  # Adjust if using a virtual environment
+ExecStart=/usr/bin/python3 /home/ec2-user/one2n-vatsa/python-http-s3.py
+
+[Install]
+WantedBy=multi-user.target
