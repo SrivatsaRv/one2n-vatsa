@@ -34,5 +34,14 @@ def list_bucket_content(subpath=''):
 
     return jsonify({'content': content})
 
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify(error='The resource could not be found.'), 404
+
+@app.errorhandler(500)
+def internal_error(e):
+    return jsonify(error='Internal server error.'), 500
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
