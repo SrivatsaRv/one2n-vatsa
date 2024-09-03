@@ -31,7 +31,7 @@ variable "instance_type" {
 variable "ami_id" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0e86e20dae9224db8"  ## Ubuntu Server 24.04 LTS (HVM), SSD Volume Type Image 
+  default     = "ami-0e86e20dae9224db8" ## Ubuntu Server 24.04 LTS (HVM), SSD Volume Type Image 
 }
 
 variable "s3_bucket_name" {

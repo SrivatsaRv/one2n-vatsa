@@ -1,7 +1,10 @@
-sudo yum update -y
-sudo yum install git python3 -y
-sudo yum install python3-pip -y
-git clone https://github.com/SrivatsaRv/one2n-vatsa.git
-cd one2n-vatsa/
+sudo apt update
+sudo apt install python3 python3-pip -y
 pip3 install -r requirements.txt
-echo "You are now set to go"
+
+sudo cp flask-app.service /etc/systemd/system
+sudo systemctl daemon reload
+sudo systemctl start flask-app.service
+sudo systemctl enable flask-app.service
+sudo systemctl status flask-app.service
+echo "You are now set to go, Flask service is running systemd service as well!"
