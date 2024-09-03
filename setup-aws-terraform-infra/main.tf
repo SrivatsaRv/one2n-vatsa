@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 resource "aws_vpc" "main-vpc" {
-  cidr_block           = "20.0.1.0/26"
+  cidr_block           = var.vpc_cidr_block
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
@@ -21,9 +21,9 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main-vpc.id
-  cidr_block              = "20.0.1.0/28"
+  cidr_block              = var.subnet_cidr_block
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-1a"
+  availability_zone       = var.availability_zone
 
   tags = {
     Name = "tf-created-subnet"
@@ -85,8 +85,8 @@ resource "aws_security_group" "tf-created-http-https-sg" {
 }
 
 resource "aws_instance" "flask-web-server" {
-  ami             = "ami-02c21308fed24a8ab"
-  instance_type   = "t2.micro"
+  ami             = var.ami_id
+  instance_type   = var.instance_type
   subnet_id       = aws_subnet.public.id
   security_groups = [aws_security_group.tf-created-http-https-sg.id]
 
@@ -96,7 +96,7 @@ resource "aws_instance" "flask-web-server" {
 }
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "tf-created-s3-bucket"
+  bucket = var.s3_bucket_name
 
   tags = {
     Name = "tf-created-s3-bucket"
@@ -109,6 +109,4 @@ resource "aws_s3_bucket_public_access_block" "my_bucket_block" {
   block_public_acls       = true
   block_public_policy     = true
   restrict_public_buckets = true
-
-
 }
