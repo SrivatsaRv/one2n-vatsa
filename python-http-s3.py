@@ -8,7 +8,7 @@ s3 = boto3.client('s3', region_name='us-east-1')
 @app.route('/list-bucket-contents/')
 @app.route('/list-bucket-contents/<path:subpath>')
 def list_bucket_content(subpath=''):
-    bucket_name = 'srivatsa-bucket'
+    bucket_name = 'tf-created-s3-bucket'
     
     if subpath and not subpath.endswith('/'):
         subpath += '/'
