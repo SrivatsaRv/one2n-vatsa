@@ -92,25 +92,15 @@ resource "aws_security_group" "tf-created-http-https-sg" {
 }
 
 resource "aws_instance" "flask-web-server" {
-  ami             = "ami-02c21308fed24a8ab"
-  instance_type   = "t2.micro"
+  ami             = var.ami_id
+  instance_type   = var.instance_type
   subnet_id       = aws_subnet.public.id
   security_groups = [aws_security_group.tf-created-http-https-sg.id]
-
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo apt update -y
-    sudo apt install -y python3 python3-pip
-    git clone https://github.com/SrivatsaRv/one2n-vatsa.git /home/ubuntu/ && cd one2n-vatsa/
-    pip3 install -r requirements.txt --break-system-packages
-    # Add commands to start your Flask app
-  EOF
 
   tags = {
     Name = "tf-created-ec2"
   }
 }
-
 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = var.s3_bucket_name
