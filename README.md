@@ -56,6 +56,3 @@
 
 ### Proposed Architecture for Assignment
 ![Proposed Architecture](One2N_Assignment.drawio.png)
-
-### Proposed Directory Structure for Terraform Project
-![Terraform Configuration Directory](terraform-dir-structure.png)
