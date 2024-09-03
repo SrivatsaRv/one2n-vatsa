@@ -2,7 +2,7 @@
 
 ### Completed Items 
 - [✅] Part-1 - HTTP Service in Python Exposing a GET Endpoint to an S3 Bucket Path
-- [❌] Part-2 - Terraform Layout to Provision Infrastructure for Code Above
+- [✅] Part-2 - Terraform Layout to Provision Infrastructure for Code Above
 
 ### Bonus Points 
 - [✅] Bonus Point - Handle errors for non-existing paths
@@ -25,7 +25,7 @@
 - Clone Terraform Repository - `git clone https://github.com/SrivatsaRv/one2n-assignment-aws-terraform-infra.git`
 
 
-### Step-1 - Provision the AWS infrastructure with Terraform
+### Step-1 - Provision the AWS infrastructure with Terraform (EXECUTE THIS ON LOCAL MACHINE)
 - Confirm terraform installation on your machine with - `terraform --version`
 - Navigate to Terraform Working Directory -  `cd one2n-assignment-aws-terraform-infra`, 
 - Initialize Terraform - `terraform init`
@@ -34,19 +34,20 @@
 - You should now have a working setup deployed in your AWS as per default region configured in AWS account. 
 
 
-### Step-2 - Run the code in your EC2-Instance
+### Step-2 - Setup the Flask app with Install Script and Run It (EXECUTE THIS ON PROVISIONED EC2 INSTANCE)
 - Use AWS session manager , and copy over your credential files to ec2-user's `/home`, create and populate `~/.aws` directory on EC2
 - Clone the Python HTTP server repository with - `git clone https://github.com/SrivatsaRv/one2n-vatsa.git` 
+- Navigate to directory with `cd /one2-vatsa` and run the bash script with `bash install_flask_app.sh`
 - Get it running with `python3 python-http-s3.py`  - test it if its all showing up good, 
 - You will now have the Flask App running - access it with `http://<public-ec2-ip>:5000/list-bucket-contents`
-
+- (optional - have created a `flask-app.service` file for systemd setup if you would like to run across reboots automatically)
 ### Terminate all resources 
 - Use `terraform destroy` to cleanup after you have tested to your satisfaction
 
 ## Assumptions -
 - You have configured your AWS Root Account -> Created an IAM Account (Administrators) , 
 - `flask-app.service` has been added, to configure in `etc/systemd/system` directory, will make the service persistent across reboots
-- Run `systemctl reload daemon` and `systemctl start flask-app.service` and `systemctl enable flask-app.service`
+- Run `systemctl reload daemon` and `systemctl start flask-app.service` and `systemctl enable flask-app.service` if you setup systemd
 
 
 ## Notice 
