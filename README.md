@@ -46,6 +46,7 @@
 ## Assumptions -
 - You have configured your AWS Root Account -> Created an IAM Account (Administrators) , 
 - `flask-app.service` has been added, to configure in `etc/systemd/system` directory, will make the service persistent across reboots
+- Run `systemctl reload daemon` and `systemctl start flask-app.service` and `systemctl enable flask-app.service`
 
 
 ## Notice 
