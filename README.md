@@ -37,7 +37,7 @@
 ### Step-2 - Setup the Flask app with Install Script and Run It (EXECUTE THIS ON PROVISIONED EC2 INSTANCE)
 - Use AWS session manager , and copy over your credential files to ec2-user's `/home`, create and populate `~/.aws` directory on EC2
 - Clone the Python HTTP server repository with - `git clone https://github.com/SrivatsaRv/one2n-vatsa.git` 
-- Navigate to directory with `cd /one2-vatsa` and run the bash script with `bash install_flask_app.sh`
+- Navigate to directory with `cd /one2n-vatsa` and run the bash script with `bash install_flask_app.sh`
 - Get it running with `python3 python-http-s3.py`  - test it if its all showing up good, 
 - You will now have the Flask App running - access it with `http://<public-ec2-ip>:5000/list-bucket-contents`
 - (optional - have created a `flask-app.service` file for systemd setup if you would like to run across reboots automatically)
