@@ -1,2 +1,6 @@
 flaskapp.log
 dummy.py
+setup-aws-terraform-infra/.terraform.lock.hcl
+setup-aws-terraform-infra/.terraform/
+setup-aws-terraform-infra/terraform.tfstate
+setup-aws-terraform-infra/terraform.tfstate.backup

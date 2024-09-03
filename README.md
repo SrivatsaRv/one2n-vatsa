@@ -37,7 +37,7 @@
 ### Step-2 - Run the code in your EC2-Instance
 - Use AWS session manager , and copy over your credential files to ec2-user's `/home`, create and populate `~/.aws` directory on EC2
 - Clone the Python HTTP server repository with - `git clone https://github.com/SrivatsaRv/one2n-vatsa.git` 
-- Get it running with `python3 python-http-s3.py` 
+- Get it running with `python3 python-http-s3.py`  - test it if its all showing up good, 
 - You will now have the Flask App running - access it with `http://<public-ec2-ip>:5000/list-bucket-contents`
 
 ### Terminate all resources 
@@ -45,7 +45,7 @@
 
 ## Assumptions -
 - You have configured your AWS Root Account -> Created an IAM Account (Administrators) , 
-- Our Terraform takes care from IAM (EC2 -> S3 Read access onwards)
+- `flask-app.service` has been added, to configure in `etc/systemd/system` directory, will make the service persistent across reboots
 
 
 ## Notice 
